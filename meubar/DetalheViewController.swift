@@ -21,7 +21,7 @@ class DetalheViewController: UIViewController {
     @IBOutlet weak var valorDetalhe: UILabel!
     
     override func viewDidLoad() {
-        
+        self.title = nome
         self.imgDetalhe.image = UIImage(named : imagem!)
         self.nomeDetalhe.text = nome
         self.descricaoDetalhe.text = descricao

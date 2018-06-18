@@ -15,13 +15,21 @@ class ItensViewController: UIViewController,UITableViewDataSource,UITableViewDel
     
     var menuSelecionado:String?
     
-    let petisco = [(nome:"batata frita",descricao:"porção de batata frita",preco:"R$ 10,00",imagem:"fritas"),(nome:"calabresa com fritas",descricao:"porção de batata frita com calabresa",preco:"R$ 15,00",imagem:"calabresa"),(nome:"Carne com Fritas",descricao:"porção de carne de sol com batatas fritas",preco:"R$ 20,00",imagem:"carne")]
-    let bebidas = [(nome:"Cerveja",descricao:"longneck",preco:"R$ 5,00",imagem:"cerveja"),(nome:"Refrigerante",descricao:"latinha 330ml",preco:" R$ 4,00",imagem:"refri")]
+    let petisco = [
+        (nome:"batata frita",descricao:"porção de batata frita",preco:"R$ 10,00",imagem:"fritas"),
+        (nome:"calabresa com fritas",descricao:"porção de batata frita com calabresa",preco:"R$ 15,00",imagem:"calabresa"),
+        (nome:"Carne com Fritas",descricao:"porção de carne de sol com batatas fritas",preco:"R$ 20,00",imagem:"carne")
+    ]
+    let bebidas = [
+        (nome:"Cerveja",descricao:"longneck",preco:"R$ 5,00",imagem:"cerveja"),
+        (nome:"Refrigerante",descricao:"latinha 330ml",preco:"R$ 4,00",imagem:"refri")
+    ]
     
     override func viewDidLoad() {
         
         TableItem.delegate = self
         TableItem.dataSource = self
+        self.title = menuSelecionado
         super.viewDidLoad()
     }
     
@@ -59,13 +67,13 @@ class ItensViewController: UIViewController,UITableViewDataSource,UITableViewDel
                 destino.descricao = bebidas[(TableItem.indexPathForSelectedRow?.row)!].descricao
                 destino.nome = bebidas[(TableItem.indexPathForSelectedRow?.row)!].nome
                 destino.imagem = bebidas[(TableItem.indexPathForSelectedRow?.row)!].imagem
-                destino.descricao = bebidas[(TableItem.indexPathForSelectedRow?.row)!].descricao
+                destino.preco = bebidas[(TableItem.indexPathForSelectedRow?.row)!].preco
                 
             }else if menuSelecionado == "Petiscos"{
                 destino.descricao = petisco[(TableItem.indexPathForSelectedRow?.row)!].descricao
                 destino.nome = petisco[(TableItem.indexPathForSelectedRow?.row)!].nome
                 destino.imagem = petisco[(TableItem.indexPathForSelectedRow?.row)!].imagem
-                destino.descricao = petisco[(TableItem.indexPathForSelectedRow?.row)!].descricao
+                destino.preco = petisco[(TableItem.indexPathForSelectedRow?.row)!].preco
             }
         }
     }
